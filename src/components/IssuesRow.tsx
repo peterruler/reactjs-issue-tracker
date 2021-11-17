@@ -124,8 +124,8 @@ export const IssuesRow = (props: any) => {
     const CheckedCheck = (props: any) => {
 
         const formatDate = (input: string) => {
-            if(input === 'undefined') {
-                return;
+            if(typeof input === 'undefined') {
+                return '0000-00-00';
             }
             let datePart = input.split("-");
             let day = datePart[datePart.length - 1];
