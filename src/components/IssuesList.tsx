@@ -71,7 +71,6 @@ export const IssuesList = () => {
                 })}
             </div>
             <button id="updateIssuesList" onClick={updateIssueList} style={hiddenBtn}></button>
-
         </>
     )
 }

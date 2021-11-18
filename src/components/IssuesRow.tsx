@@ -8,7 +8,7 @@ export const IssuesRow = (props: any) => {
         setChecked1(props.done);
     }, [props.done])
 
-    function onChange(e: React.FormEvent) {
+    const onChange = (e: React.FormEvent) => {
         let element = (e.target as HTMLInputElement);
         let checked = element.checked;
         let id = element.getAttribute("data-id");
@@ -67,7 +67,7 @@ export const IssuesRow = (props: any) => {
                             });
                             localStorage.setItem("IssuesFiltered", JSON.stringify(arr));
                         }
-
+                        document.getElementById("updateIssuesList")?.click();
                     }
                 }
             });
@@ -118,10 +118,10 @@ export const IssuesRow = (props: any) => {
                     });
                     localStorage.setItem("IssuesFiltered", JSON.stringify(arr2));
                 }
+                document.querySelector("#btn-" + id)?.parentElement?.parentElement?.remove();
+                document.getElementById("updateIssuesList")?.click();
             });
 
-        document.querySelector("#btn-" + id)?.parentElement?.parentElement?.remove();
-        document.getElementById("updateIssuesList")?.click();
     }
 
     const CheckedCheck = (props: any, checked: any) => {
