@@ -21,6 +21,10 @@
 		position: relative;
 	}
 
+	.invisible {
+		visibility: hidden !important;
+	}
+
 	.navbar-toggler, 
 	.navbar-toggler:focus,
 	.navbar-toggler:active,
@@ -214,6 +218,10 @@
 
 	.newIssue.d-flex {
 		flex-direction: column !important;
+	}
+	
+	#projectSelect {
+		margin-bottom:10px;
 	}
 }
 

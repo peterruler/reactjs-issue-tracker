@@ -39,9 +39,9 @@ export const IssuesList = () => {
         }
         localStorage.setItem("IssuesFiltered", JSON.stringify(arr));
         setIssuesList(arr);
+        console.info("Managed Issue List View has been updated")
     }
     issuesArray = JSON.parse(localStorage.getItem("IssuesFiltered") || "[{}]");
-    console.info("Managed Issue List View has been updated")
     return (
         <>
             <div className="rTable headings">
@@ -50,7 +50,7 @@ export const IssuesList = () => {
                     <div className="rTableHead">Name</div>
                     <div className="rTableHead">Priorität</div>
                     <div className="rTableHead">Fällig am</div>
-                    <div className="invisible"></div>
+                    <div className="rTableCell invisible"></div>
                 </div>
             </div>
             <div className="listWrapper">
@@ -65,7 +65,7 @@ export const IssuesList = () => {
                         done={e.done}
                         client-id={e.client_id}
                         project-client-id={e.project_client_id}
-                        checked={e.done ? 'checked' : ''}
+                        checked={e.done}
                         onClick={updateIssueList}
                     />;
                 })}

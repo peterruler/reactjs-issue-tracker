@@ -1,10 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import { REST_URI } from './Config';
 
 export const IssuesRow = (props: any) => {
-    function handleCheckbox(e: React.FormEvent) {
+    const [checked1, setChecked1] = useState(false);
+
+
+    function onChange(e: React.FormEvent) {
+
+
         let element = (e.target as HTMLInputElement);
         let checked = element.checked;
+
         let id = element.getAttribute("data-id");
         let issueTitle = element.getAttribute("data-title");
         let dueDate = element.getAttribute("data-due-date");
@@ -65,9 +71,7 @@ export const IssuesRow = (props: any) => {
                     }
                 }
             });
-
-        //(document.getElementById('checked-'+id) as HTMLInputElement).className = "checked-row";
-
+        setChecked1(checked);
         document.getElementById("updateIssuesList")?.click();
     }
     const handleDeleteClick = (e: React.FormEvent) => {
@@ -121,10 +125,10 @@ export const IssuesRow = (props: any) => {
         document.getElementById("updateIssuesList")?.click();
     }
 
-    const CheckedCheck = (props: any) => {
+    const CheckedCheck = (props: any, checked : any) => {
 
         const formatDate = (input: string) => {
-            if(typeof input === 'undefined') {
+            if (typeof input === 'undefined') {
                 return '0000-00-00';
             }
             let datePart = input.split("-");
@@ -134,8 +138,8 @@ export const IssuesRow = (props: any) => {
             return day + '.' + month + '.' + year;
         }
         let formattedDate = formatDate(props.argument.duedate);
-        
-        if (props.argument.checked) {
+
+        if (props.checked) {
             return (
                 <>
                     <div className="rTableCell strikethrough-done-row"> {props.argument.title} </div>
@@ -157,17 +161,17 @@ export const IssuesRow = (props: any) => {
     return (
         <>
             <div className="rTable issues-ul">
-                <div className="rTableRow list-item" id={'checked-' + props.id}>
+                <div className="rTableRow list-item " id={'checked-' + props.id}>
                     <div className="rTableCell">
                         <input type="checkbox"
-                            onChange={handleCheckbox} onClick={props.handleCheckboxClick} checked={props.checked} className="checkbox" name="done-list"
+                            onChange={onChange} checked={checked1 || props.checked} className="checkbox" name="done-list"
                             data-id={props.id}
                             data-priority={props.priority}
                             data-due-date={props.duedate}
                             data-title={props.title}
                         />
                     </div>
-                    <CheckedCheck argument={props} />
+                    <CheckedCheck argument={props} checked={checked1 || props.checked}/>
                     <div className="rTableCell lastCell">
                         <button type="button" id={`btn-${props.id}`} data-id={props.id} onClick={handleDeleteClick} className="delete_issue">
                             <i className="fa fa-trash fa-3" aria-hidden="true"></i>
