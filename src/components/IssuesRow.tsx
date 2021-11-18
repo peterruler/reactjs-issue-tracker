@@ -70,7 +70,6 @@ export const IssuesRow = (props: any) => {
 
                     }
                 }
-                document.getElementById("updateIssuesList")?.click();
             });
         setChecked1(checked);
     }
