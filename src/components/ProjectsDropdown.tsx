@@ -8,7 +8,7 @@ export const ProjectsDropdown = () => {
     }
     const [state, setState] = useState(getInitialState());
 
-    const handleChange = (e: React.FormEvent) => {
+    const updateProjectList = (e: React.FormEvent) => {
         let projectIdOptionValue = (e.target as HTMLTextAreaElement).value;
         setState([projectIdOptionValue]);
         localStorage.setItem("selectedProjectId", projectIdOptionValue);
@@ -27,12 +27,10 @@ export const ProjectsDropdown = () => {
     const hiddenBtn: CSS.Properties = {
         display: "none",
     };
-    const updateProjectList = (e: React.FormEvent) => {
-        handleChange(e);
-    }
+    
     return (
         <>
-            <select onChange={handleChange} value={state} id="projectSelect" className="form-select" multiple aria-label="multiple select example">
+            <select onChange={updateProjectList} value={state} id="projectSelect" className="form-select" multiple aria-label="multiple select example">
                 <option key={-1} data-uuid="" value="0">Projekt wählen...</option>;
                 {proj.map((e) => {
                     return <option key={e.id} data-uuid={e.client_id} value={e.id}>{e.title}</option>;
