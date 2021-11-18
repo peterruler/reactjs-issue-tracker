@@ -70,9 +70,9 @@ export const IssuesRow = (props: any) => {
 
                     }
                 }
+                document.getElementById("updateIssuesList")?.click();
             });
         setChecked1(checked);
-        document.getElementById("updateIssuesList")?.click();
     }
     const handleDeleteClick = (e: React.FormEvent) => {
         let button = (e.currentTarget as HTMLInputElement);
