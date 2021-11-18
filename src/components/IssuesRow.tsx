@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { REST_URI } from './Config';
 
 export const IssuesRow = (props: any) => {
     const [checked1, setChecked1] = useState(false);
 
+    useEffect(() => {
+        setChecked1(props.done);
+    }, [props.done])
 
     function onChange(e: React.FormEvent) {
-
-
         let element = (e.target as HTMLInputElement);
         let checked = element.checked;
-
         let id = element.getAttribute("data-id");
         let issueTitle = element.getAttribute("data-title");
         let dueDate = element.getAttribute("data-due-date");
@@ -125,7 +125,7 @@ export const IssuesRow = (props: any) => {
         document.getElementById("updateIssuesList")?.click();
     }
 
-    const CheckedCheck = (props: any, checked : any) => {
+    const CheckedCheck = (props: any, checked: any) => {
 
         const formatDate = (input: string) => {
             if (typeof input === 'undefined') {
@@ -164,14 +164,14 @@ export const IssuesRow = (props: any) => {
                 <div className="rTableRow list-item " id={'checked-' + props.id}>
                     <div className="rTableCell">
                         <input type="checkbox"
-                            onChange={onChange} checked={checked1 || props.checked} className="checkbox" name="done-list"
+                            onChange={onChange} checked={checked1} className="checkbox" name="done-list"
                             data-id={props.id}
                             data-priority={props.priority}
                             data-due-date={props.duedate}
                             data-title={props.title}
                         />
                     </div>
-                    <CheckedCheck argument={props} checked={checked1 || props.checked}/>
+                    <CheckedCheck argument={props} checked={checked1 || props.checked} />
                     <div className="rTableCell lastCell">
                         <button type="button" id={`btn-${props.id}`} data-id={props.id} onClick={handleDeleteClick} className="delete_issue">
                             <i className="fa fa-trash fa-3" aria-hidden="true"></i>
