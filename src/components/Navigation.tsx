@@ -24,8 +24,7 @@ export const Navigation = () => {
                                 Tracker</span></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
-                            <i className="fas fa-bars"></i>
-                            
+                            <i className="fas fa-bars"></i>     
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul className="navbar-nav">
