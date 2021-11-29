@@ -123,21 +123,18 @@ export const IssuesRow = (props: any) => {
             });
 
     }
-
-    const CheckedCheck = (props: any, checked: any) => {
-
-        const formatDate = (input: string) => {
-            if (typeof input === 'undefined') {
-                return '0000-00-00';
-            }
-            let datePart = input.split("-");
-            let day = datePart[datePart.length - 1];
-            let month = datePart[datePart.length - 2];
-            let year = datePart[0];
-            return day + '.' + month + '.' + year;
+    const formatDate = (input: string) => {
+        if (typeof input === 'undefined') {
+            return '0000-00-00';
         }
+        let datePart = input.split("-");
+        let day = datePart[datePart.length - 1];
+        let month = datePart[datePart.length - 2];
+        let year = datePart[0];
+        return day + '.' + month + '.' + year;
+    }
+    const CheckedCheck = (props: any, checked: any) => {
         let formattedDate = formatDate(props.argument.duedate);
-
         if (props.checked) {
             return (
                 <>
