@@ -18,7 +18,7 @@ const handleNewProject = () => {
     const util = new Util();
     let inputValue = (document.querySelector(".form-control") as HTMLInputElement).value;
     if (inputValue.length < 3) {
-        alert("Bitte Projektname mit midestens drei Zeichen wählen!")
+        alert("Bitte Projektname mit mindestens drei Zeichen wählen!")
         return;
     }
     const postData = {
