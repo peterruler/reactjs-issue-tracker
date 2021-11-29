@@ -1,5 +1,4 @@
 import React from 'react'
-import CSS from 'csstype';
 import Util from './Util'
 import {REST_URI} from './Config';
 
