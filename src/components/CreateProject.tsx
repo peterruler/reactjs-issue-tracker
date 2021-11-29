@@ -12,6 +12,9 @@ const makeSelected = (project_id: string | null) => {
     localStorage.setItem("selectedProjectId",project_id);
     select.setAttribute("selected","selected");
 }
+const resetProjectInput = () => {
+    (document.getElementById("new-project") as HTMLInputElement).value = "";
+}
 
 const handleNewProject = () => {
     makeSelected(localStorage.getItem("selectedProjectId"));
@@ -53,6 +56,7 @@ const handleNewProject = () => {
                 console.log("New project Id = " + result.id);
                 localStorage.setItem("selectedProjectId", result.id);
                 makeSelected(result.id);
+                resetProjectInput();
             } else {
                 console.error("Request didn't return a result!");
             }
