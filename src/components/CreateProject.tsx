@@ -24,6 +24,7 @@ const handleNewProject = () => {
         alert("Bitte Projektname mit mindestens drei Zeichen wählen!")
         return;
     }
+    resetProjectInput();
     const postData = {
         "client_id": util.uuid(),
         "title": inputValue != null ? inputValue : "",
@@ -56,7 +57,6 @@ const handleNewProject = () => {
                 console.log("New project Id = " + result.id);
                 localStorage.setItem("selectedProjectId", result.id);
                 makeSelected(result.id);
-                resetProjectInput();
             } else {
                 console.error("Request didn't return a result!");
             }
