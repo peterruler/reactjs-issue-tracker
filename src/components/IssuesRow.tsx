@@ -135,37 +135,19 @@ export const IssuesRow = (props: any) => {
     }
 
     const CheckedCheck = (props: any, checked: any) => {
-
         let formattedDate = formatDate(props.argument.duedate);
-
-        if (props.checked) {
             return (<>
                 {(props.priority !== 'undefined') && (
                     <>
-                        <div className="rTableCell strikethrough-done-row"> {props.argument.title} </div>
-                        <div className="rTableCell strikethrough-done-row"> {props.argument.priority} </div>
-                        <div className="rTableCell due-date-output strikethrough-done-row">{formattedDate}</div>
+                        <div className={props.checked ? 'rTableCell  strikethrough-done-row' : 'rTableCell '}> {props.argument.title} </div>
+                        <div className={props.checked ? 'rTableCell  strikethrough-done-row' : 'rTableCell '}> {props.argument.priority} </div>
+                        <div className={props.checked ? 'rTableCell due-date-output strikethrough-done-row' : 'rTableCell due-date-output'}>{formattedDate}</div>
                     </>
                 )
                 }
             </>
             )
-        } else {
-            return (
-                <>
-                    {(props.priority !== 'undefined') && (
-                        <>
-                            <div className="rTableCell"> {props.argument.title} </div>
-                            <div className="rTableCell"> {props.argument.priority} </div>
-                            <div className="rTableCell due-date-output">{formattedDate}</div>
-
-                        </>
-                    )
-                    }</>
-            )
-        }
     }
-
     return (
         <>
             <div className="rTable issues-ul">
