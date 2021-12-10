@@ -67,7 +67,7 @@ export const CreateProject = () => {
     return (
         <>
             <div className="input-group mb-3">
-                <input type="text" className="form-control" aria-label="Project Name" id="new-project" name="title" placeholder="" />
+                <input type="text" className="form-control" aria-label="Project Name" id="new-project" name="title" placeholder="Projektname" />
                 <span onClick={handleNewProject} className="input-group-text input-group-addon btn-success fa fa-plus save_project"></span>
             </div>
         </>

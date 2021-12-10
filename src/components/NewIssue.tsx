@@ -113,7 +113,7 @@ export const NewIssue = () => {
                 </div>
                 <div className="col-sm-12 col-md-6">
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control issueTitle" aria-label="Project Name" id="new-issue" name="title" placeholder="" />
+                        <input type="text" className="form-control issueTitle" aria-label="Project Name" id="new-issue" name="title" placeholder="Issuename" />
                         <span onClick={handleNewIssue} className="input-group-text input-group-addon btn-success fa fa-plus save_project"></span>
                     </div>
                 </div>
