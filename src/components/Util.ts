@@ -14,15 +14,4 @@ export default class Util {
         if (!dNum && dNum !== 0) return false; // NaN value, Invalid date
         return d.toISOString().slice(0, 10) === dateString;
     }
-    attachClick() {
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                const toggler = document.querySelector("button.navbar-toggler") as HTMLElement
-                toggler.click()
-                toggler.className = 'navbar-toggler collapsed'
-                toggler.setAttribute('aria-expanded',"false");
-            })
-        })
-    }
 }

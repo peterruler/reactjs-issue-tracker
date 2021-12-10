@@ -19,8 +19,6 @@ function App() {
     display : "none"
   }
 
-  const utl = new Util();
-  utl.attachClick()
   return (<>
   <h1 style={hiddenStyle}>Peter Strössler</h1>
     <Navigation />
