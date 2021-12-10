@@ -4,13 +4,13 @@ import {Project} from './Issues.type';
 
 export const ProjectsDropdown = () => {
     function getInitialState() {
-        return ['select']
+        return 'select'
     }
     const [state, setState] = useState(getInitialState());
 
     const updateProjectList = (e: React.FormEvent) => {
         let projectIdOptionValue = (e.target as HTMLTextAreaElement).value;
-        setState([projectIdOptionValue]);
+        setState(projectIdOptionValue);
         localStorage.setItem("selectedProjectId", projectIdOptionValue);
         document.getElementById("updateIssuesList")?.click();
     }
