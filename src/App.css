@@ -242,10 +242,10 @@
 	.navbar-expand-lg .navbar-collapse {
 		justify-content: end;
 	}
-}
-@media (min-width:768px) {
 	.create-project-inpt-grp {
 		position: relative;
 		top: -20px;
 	}
+}
+@media (min-width:768px) {
 }
