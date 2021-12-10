@@ -3,11 +3,8 @@ import CSS from 'csstype';
 export const Navigation = () => {
     const navStyle: CSS.Properties = {
         backgroundColor: '#073642',
-      };
-
-    const logoStyle : CSS.Properties = {
-        paddingRight: "10px",
     };
+
     const headerStyle : CSS.Properties = {
         paddingBottom : '20px'
     }
@@ -17,7 +14,6 @@ export const Navigation = () => {
                 <nav className="navbar navbar-expand-lg" style={navStyle}>
                     <div className="container-fluid container">
                         <a className="navbar-brand" href="/"><img
-                        style={logoStyle}
                         src="./img/bug-white-32.png"
                         alt="bug tracker"
                         className="bug-logo" /><span className="title">Issue

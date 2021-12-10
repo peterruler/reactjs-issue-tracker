@@ -10,9 +10,9 @@ import { Footer } from './components/Footer';
 function App() {
 
   const titleStyle: CSS.Properties = {
-    paddingBottom: '20px',
+    paddingBottom: '16px',
     color: "#fff",
-    fontSize: '21px'
+    fontSize: '16px'
   }
   const hiddenStyle: CSS.Properties = {
     display : "none"
@@ -27,7 +27,7 @@ function App() {
         <div className="col-md-3">
           <ProjectsDropdown />
         </div>
-        <div className="col-md-9">
+        <div className="col-md-9 create-project-inpt-grp">
           <CreateProject />
         </div>
       </div>

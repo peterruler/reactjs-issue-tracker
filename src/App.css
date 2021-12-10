@@ -14,10 +14,17 @@
 		max-width: 786px;
 	}
 
+	.navbar-brand img {
+		padding-right: 5px;
+		width: 20px;
+		margin-top: -2px;
+	}
+
 	.title {
 		font-weight: 300;
+		font-size:16px;
+		top:0;
 		color: #fff;
-		top:1px;
 		position: relative;
 	}
 
@@ -234,5 +241,11 @@
 @media (min-width: 992px) {
 	.navbar-expand-lg .navbar-collapse {
 		justify-content: end;
+	}
+}
+@media (min-width:768px) {
+	.create-project-inpt-grp {
+		position: relative;
+		top: -20px;
 	}
 }
