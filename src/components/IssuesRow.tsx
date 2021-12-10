@@ -125,7 +125,7 @@ export const IssuesRow = (props: any) => {
     }
     const formatDate = (input: string) => {
         if (typeof input === 'undefined') {
-            return '0000-00-00';
+            return '';
         }
         let datePart = input.split("-");
         let day = datePart[datePart.length - 1];
@@ -133,23 +133,35 @@ export const IssuesRow = (props: any) => {
         let year = datePart[0];
         return day + '.' + month + '.' + year;
     }
+
     const CheckedCheck = (props: any, checked: any) => {
+
         let formattedDate = formatDate(props.argument.duedate);
+
         if (props.checked) {
-            return (
-                <>
-                    <div className="rTableCell strikethrough-done-row"> {props.argument.title} </div>
-                    <div className="rTableCell strikethrough-done-row"> {props.argument.priority} </div>
-                    <div className="rTableCell due-date-output strikethrough-done-row">{formattedDate}</div>
-                </>
+            return (<>
+                {(props.priority !== 'undefined') && (
+                    <>
+                        <div className="rTableCell strikethrough-done-row"> {props.argument.title} </div>
+                        <div className="rTableCell strikethrough-done-row"> {props.argument.priority} </div>
+                        <div className="rTableCell due-date-output strikethrough-done-row">{formattedDate}</div>
+                    </>
+                )
+                }
+            </>
             )
         } else {
             return (
                 <>
-                    <div className="rTableCell"> {props.argument.title} </div>
-                    <div className="rTableCell"> {props.argument.priority} </div>
-                    <div className="rTableCell due-date-output">{formattedDate}</div>
-                </>
+                    {(props.priority !== 'undefined') && (
+                        <>
+                            <div className="rTableCell"> {props.argument.title} </div>
+                            <div className="rTableCell"> {props.argument.priority} </div>
+                            <div className="rTableCell due-date-output">{formattedDate}</div>
+
+                        </>
+                    )
+                    }</>
             )
         }
     }
@@ -158,21 +170,27 @@ export const IssuesRow = (props: any) => {
         <>
             <div className="rTable issues-ul">
                 <div className="rTableRow list-item " id={'checked-' + props.id}>
-                    <div className="rTableCell">
-                        <input type="checkbox"
-                            onChange={onChange} checked={checked1} className="checkbox" name="done-list"
-                            data-id={props.id}
-                            data-priority={props.priority}
-                            data-due-date={props.duedate}
-                            data-title={props.title}
-                        />
-                    </div>
+                    {(typeof props.priority !== 'undefined') && (
+                        <div className="rTableCell">
+                            <input type="checkbox"
+                                onChange={onChange} checked={checked1} className="checkbox" name="done-list"
+                                data-id={props.id}
+                                data-priority={props.priority}
+                                data-due-date={props.duedate}
+                                data-title={props.title}
+                            />
+                        </div>
+                    )}
                     <CheckedCheck argument={props} checked={checked1 || props.checked} />
-                    <div className="rTableCell lastCell">
-                        <button type="button" id={`btn-${props.id}`} data-id={props.id} onClick={handleDeleteClick} className="delete_issue">
-                            <i className="fa fa-trash fa-3" aria-hidden="true"></i>
-                        </button>
-                    </div>
+
+                    {(typeof props.priority !== 'undefined') && (
+                        <div className="rTableCell lastCell">
+                            <button type="button" id={`btn-${props.id}`} data-id={props.id} onClick={handleDeleteClick} className="delete_issue">
+                                <i className="fa fa-trash fa-3" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                    )}
                     <div className="rTableCell "> </div>
                     <input type="hidden" id="id" name="id" value={props.id} />
                     <input type="hidden" id="title" name="title" value="tst" />

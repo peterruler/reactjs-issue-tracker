@@ -98,9 +98,10 @@ export const NewIssue = () => {
                     <div className="input-group mb-1">
                         <label className="white-txt pull-left sr-only priority" htmlFor="priority">Wähle Priorität</label>
                         <select name="priority" id="priority" className="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                            <option value="">Prio...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </div>
                 </div>
