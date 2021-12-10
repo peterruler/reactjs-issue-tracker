@@ -215,6 +215,11 @@
 		position: relative;
 		left: 20px;
 	}
+	
+	#projectSelect {
+		margin-bottom:6px;
+		height:35px;
+	}
 }
 
 @media (max-width: 786px) {
@@ -226,10 +231,7 @@
 	.newIssue.d-flex {
 		flex-direction: column !important;
 	}
-	
-	#projectSelect {
-		margin-bottom:6px;
-	}
+
 }
 
 @media (min-width: 786px) {
@@ -244,9 +246,12 @@
 	}
 }
 
-@media (min-width:1200px) {
+@media (min-width:768px) {
 	.create-project-inpt-grp {
 		position: relative;
-		top: -20px;
+		top: 5px;
+	}
+	#projectSelect {
+		height:33px;
 	}
 }
