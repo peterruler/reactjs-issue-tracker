@@ -6,7 +6,6 @@ import { ProjectsDropdown } from './../src/components/ProjectsDropdown'
 import { IssuesList } from './components/IssuesList';
 import { NewIssue } from './components/NewIssue';
 import { Footer } from './components/Footer';
-import Util from './components/Util';
 
 function App() {
 
