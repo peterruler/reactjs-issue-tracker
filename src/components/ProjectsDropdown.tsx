@@ -31,7 +31,6 @@ export const ProjectsDropdown = () => {
     return (
         <>
             <select onChange={updateProjectList} value={state} id="projectSelect" className="form-select" aria-label="select">
-                <option key={-1} data-uuid="" value="0">Projekt wählen...</option>;
                 {proj.map((e) => {
                     return <option key={e.id} data-uuid={e.client_id} value={e.id}>{e.title}</option>;
 
