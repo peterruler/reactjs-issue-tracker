@@ -218,7 +218,6 @@
 	
 	#projectSelect {
 		margin-bottom:6px;
-		height:35px;
 	}
 }
 
@@ -250,8 +249,5 @@
 	.create-project-inpt-grp {
 		position: relative;
 		top: 5px;
-	}
-	#projectSelect {
-		height:33px;
 	}
 }

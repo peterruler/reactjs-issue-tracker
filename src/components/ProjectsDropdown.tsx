@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import CSS from 'csstype';
-import {Project} from './Issues.type';
+import { Project } from './Issues.type';
 
 export const ProjectsDropdown = () => {
     function getInitialState() {
-        return 'select'
+        return ['select']
     }
     const [state, setState] = useState(getInitialState());
 
     const updateProjectList = (e: React.FormEvent) => {
         let projectIdOptionValue = (e.target as HTMLTextAreaElement).value;
-        setState(projectIdOptionValue);
+        setState([projectIdOptionValue]);
         localStorage.setItem("selectedProjectId", projectIdOptionValue);
         document.getElementById("updateIssuesList")?.click();
+        
     }
     let proj: (Project | null);
     proj = JSON.parse(localStorage.getItem("Projects") || "[{}]");
@@ -27,16 +28,20 @@ export const ProjectsDropdown = () => {
     const hiddenBtn: CSS.Properties = {
         display: "none",
     };
-    
+
     return (
         <>
-            <select onChange={updateProjectList} value={state} id="projectSelect" className="form-select" aria-label="select">
-                {proj.map((e) => {
-                    return <option key={e.id} data-uuid={e.client_id} value={e.id}>{e.title}</option>;
+            {(proj != null) && (
+                <>
+                    <select onChange={updateProjectList} value={state} id="projectSelect" className="form-select" aria-label="select" multiple>
+                        {proj.map((e) => {
+                            return <option key={e.id} data-uuid={e.client_id} value={e.id}>{e.title}</option>;
 
-                })}
-            </select>
-            <button id="updateProjectList" onClick={updateProjectList} style={hiddenBtn}></button>
+                        })}
+                    </select>
+                    <button id="updateProjectList" onClick={updateProjectList} style={hiddenBtn}></button>
+                </>
+            )}
         </>
     )
 }
