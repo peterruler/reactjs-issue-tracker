@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CSS from 'csstype';
 import { Project } from './Issues.type';
 
@@ -7,6 +7,25 @@ export const ProjectsDropdown = () => {
         return ['select']
     }
     const [state, setState] = useState(getInitialState());
+
+    useEffect(()=> {
+        const project_id = localStorage.getItem("selectedProjectId");
+        let select = (document.querySelector("#projectSelect") as HTMLSelectElement);
+        if(project_id) {
+            select.value = project_id;
+            select.setAttribute("selected","selected");
+        }
+        let valueExists = false;
+        for (let i = 0; i < select.length; ++i){//Check if value exists as option
+            if (select.options[i].value === project_id){
+              valueExists = true;
+            }
+        }
+        if(!valueExists){//case value in storage doen't exist in select option
+            select.selectedIndex = select.options.length - 1;//set last element selected
+            select.setAttribute("selected","selected");
+        }
+    });
 
     const updateProjectList = (e: React.FormEvent) => {
         let projectIdOptionValue = (e.target as HTMLTextAreaElement).value;
